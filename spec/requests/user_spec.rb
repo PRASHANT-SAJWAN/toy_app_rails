@@ -36,9 +36,12 @@ RSpec.describe "Users", type: :request do
         follow_up = response.headers["Location"]
         get "/api/v1/#{follow_up}"
         user_data = JSON.parse(response.body)
-        # p user_data
+        p user_data["user"]
+        p @user
 
-        expect(user_data["email"]).to(match_array(@user))
+        expect(user_data["user"]["email"]).to(eq(@user.email))
+        expect(user_data["user"]["password"]).to(eq(@user.password))
+        expect(user_data["user"]["name"]).to(eq(@user.name))
       end
     end
   end
