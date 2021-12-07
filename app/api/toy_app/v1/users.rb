@@ -23,11 +23,7 @@ module ToyApp
             post do
               # by sidekiq
               HardWorker.perform_async(params)
-              present params
-            end
-            get do
-              @user = User.find(params[:user_id])
-              redirect "users/#{params[:user_id]}" if @user
+              redirect "/api/v1/users/#{params[:user_id]}"
             end
           end
 
@@ -71,8 +67,7 @@ module ToyApp
           @user = User.find_by_email(params[:email])
           if @user.password == params[:password]
             @user.update(params)
-          else
-            redirect "update" if @user.password != params[:password]
+            redirect "/api/v1/users/#{@user.id}"
           end
         end
       end

@@ -4,7 +4,8 @@ class HardWorker
   def perform(*params)
     # Do something
     params = params[0]
-    @user = User.find (params["user_id"])
-    @post = Post.create(params) if @user
+    # @user = User.find (params["user_id"])
+    @post = Post.create(params)
+    p @post
   end
 end
