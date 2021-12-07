@@ -1,14 +1,15 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  before :each do
+  # before :each do
     # @user_params = {
     #   email: 'test@test.com',
     #   name: 'testuser',
     #   password: 'userpass'
     # }
     # @user_params = build(:user)
-  end
+  # end
+
   it 'has username password and email' do
     # user = User.new(@user_params)
     user = build(:user)
