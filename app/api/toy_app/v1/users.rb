@@ -10,7 +10,6 @@ module ToyApp
         get do
           present User.all.map {|user| {:user=> user, :post=> user.post}}
         end
-
         desc 'return a user'
         route_param :user_id do
           get do
@@ -40,7 +39,6 @@ module ToyApp
       resource :signup do
         post do
           @user = User.create!(params)
-          # present @user
           redirect "users/#{@user.id}"
         end
       end

@@ -35,6 +35,7 @@ gem 'redis-rails'
 gem 'rack'
 gem 'sinatra'
 
+gem 'simplecov', require: false, group: :test
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
